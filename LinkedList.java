@@ -14,6 +14,21 @@ public class LinkedList<T> {
 			head=node;
 		}
 	}
+	
+	public void append(T data) {
+		Node <T> node = new Node<>();
+		node.data = data;
+
+		if (head == null) {
+			head = node;
+		} else {
+			Node <T> n = head;
+			while (n.next != null) {
+				n = n.next;
+			}
+			n.next=node;
+		}
+	}
 	public void show() {
 		Node<T> node = head;
 		while(node.next!=null) {
