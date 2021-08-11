@@ -111,4 +111,22 @@ public class LinkedList<T> {
 	public void addAfter(T data) {
 		insert(data, search(data));
 	}
+	
+	public int size() {
+		return size;
+	}
+	
+	public void remove(T data){
+		if(size>0) {
+			Node <T> n = head;
+			for(int i = 1 ; i< search(data)-1 ; i++) {
+				n=n.next;
+			}
+			n.next=n.next.next;
+			
+		}
+		else {
+			System.out.print("Empty List");
+		}
+	}
 }
