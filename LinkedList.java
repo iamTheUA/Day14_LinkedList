@@ -29,6 +29,18 @@ public class LinkedList<T> {
 			n.next=node;
 		}
 	}
+	
+	public void insert(T data , int pos) {
+		Node <T> node = new Node<>();
+		Node <T>n=head;
+		for(int i= 1; i<pos-1; i++) {
+			n=n.next;
+		}
+		node.data=data;
+		node.next=n.next;
+		n.next=node;
+		
+	}
 	public void show() {
 		Node<T> node = head;
 		while(node.next!=null) {
