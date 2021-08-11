@@ -6,8 +6,9 @@ public class ListedListDay14 {
 		LinkedList <Integer> list = new LinkedList<>();
 		
 		list.append(56);
+		list.append(30);
 		list.append(70);
-		list.insert(30, 2);
+		list.pop();
 		
 		list.show();
 	}
