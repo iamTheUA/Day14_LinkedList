@@ -1,11 +1,11 @@
 package DataStr_Day14;
 
-public class LinkedList<T> {
-	Node<T> head = null;
+public class LinkedList {
+	Node  head = null;
 	int size = 0;
 
-	public void add(T data) {
-		Node<T> node = new Node<>();
+	public void add(int data) {
+		Node node = new Node();
 		node.data = data;
 
 		if (head == null) {
@@ -17,14 +17,14 @@ public class LinkedList<T> {
 		size++;
 	}
 
-	public void append(T data) {
-		Node<T> node = new Node<>();
+	public void append(int data) {
+		Node  node = new Node();
 		node.data = data;
 
 		if (head == null) {
 			head = node;
 		} else {
-			Node<T> n = head;
+			Node  n = head;
 			while (n.next != null) {
 				n = n.next;
 			}
@@ -33,11 +33,11 @@ public class LinkedList<T> {
 		size++;
 	}
 
-	public void insert(T data, int pos) {
+	public void insert(int data, int pos) {
 		if (pos <= size) {
-			Node<T> node = new Node<>();
+			Node  node = new Node();
 			node.data = data;
-			Node<T> n = head;
+			Node  n = head;
 			for (int i = 1; i < pos - 1; i++) {
 				n = n.next;
 			}
@@ -64,11 +64,11 @@ public class LinkedList<T> {
 
 	public void popLast() {
 		if (size > 0) {
-			Node <T> n = head;
-			for (int i = 1; i < size-1; i++) {
-				n=n.next;
+			Node  n = head;
+			for (int i = 1; i < size - 1; i++) {
+				n = n.next;
 			}
-			n.next=null;
+			n.next = null;
 			size--;
 		} else {
 			System.out.println("Empty List");
@@ -76,7 +76,7 @@ public class LinkedList<T> {
 	}
 
 	public void show() {
-		Node<T> node = head;
+		Node  node = head;
 		if (size > 0) {
 			while (node.next != null) {
 				System.out.println(node.data);
@@ -86,47 +86,83 @@ public class LinkedList<T> {
 		} else {
 			System.out.print("Empty List");
 		}
+		System.out.println();
 	}
-	
-	public int search(T data) {
-		if(size>0) {
-			Node<T> n = head;
+
+	public int search(int data) {
+		if (size > 0) {
+			Node  n = head;
 			int pos = 1;
-			while(n.next!=null) {
-				if(n.data==data) {
+			while (n.next != null) {
+				if (n.data == data) {
 					break;
 				}
-				n=n.next;
+				n = n.next;
 				pos++;
 			}
-			return pos ;
-			
-		}else {
+			return pos;
+
+		} else {
 			System.out.print("Empty List");
-			return -1 ;
+			return -1;
 		}
-		
+
 	}
-	
-	public void addAfter(T data) {
-		insert(data, search(data));
+
+	public void addAfter(int toAddData, int afterData) {
+		insert(toAddData, search(afterData) + 1);
 	}
-	
+
 	public int size() {
 		return size;
 	}
-	
-	public void remove(T data){
-		if(size>0) {
-			Node <T> n = head;
-			for(int i = 1 ; i< search(data)-1 ; i++) {
-				n=n.next;
+
+	public void remove(int data) {
+		if (size > 0) {
+			Node  n = head;
+			for (int i = 1; i < search(data) - 1; i++) {
+				n = n.next;
 			}
-			n.next=n.next.next;
-			
-		}
-		else {
+			n.next = n.next.next;
+
+		} else {
 			System.out.print("Empty List");
 		}
 	}
+
+	public void sort() {
+		
+		int [] a = new int[size];
+		Node  n = head;
+		int temp =0;
+		int i=0;
+		while(n.next!=null) {
+			a[i]=0;
+			a[i]=(int)n.data;
+			i++;
+			n=n.next;
+		}
+		System.out.println();
+
+		a[i]=0;
+		a[i]=(int)n.data;	
+		 for(i=0 ; i<size; i++) {
+
+				for(int j=i; j<size; j++) {
+					if ( a[i] > a[j]) {
+						temp = a[j];
+						a[j] = a[i];
+						a[i]= temp;
+					}
+				}
+			}
+		 n=head;
+		 i=0;
+		 while(n.next!=null) {
+			 n.data = a[i];
+			 i++;
+			 n=n.next; 
+		 }
+		 n.data=a[i];
+		 }
 }
