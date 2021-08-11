@@ -107,4 +107,8 @@ public class LinkedList<T> {
 		}
 		
 	}
+	
+	public void addAfter(T data) {
+		insert(data, search(data));
+	}
 }
