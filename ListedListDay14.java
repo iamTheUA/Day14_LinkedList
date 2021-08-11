@@ -9,8 +9,6 @@ public class ListedListDay14 {
 		list.append(30);
 		list.append(70);
 
-		list.popLast();
-		
-		list.show();
+		System.out.println(list.search(30));
 	}
 }

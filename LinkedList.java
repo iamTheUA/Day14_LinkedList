@@ -69,6 +69,7 @@ public class LinkedList<T> {
 				n=n.next;
 			}
 			n.next=null;
+			size--;
 		} else {
 			System.out.println("Empty List");
 		}
@@ -85,5 +86,25 @@ public class LinkedList<T> {
 		} else {
 			System.out.print("Empty List");
 		}
+	}
+	
+	public int search(T data) {
+		if(size>0) {
+			Node<T> n = head;
+			int pos = 1;
+			while(n.next!=null) {
+				if(n.data==data) {
+					break;
+				}
+				n=n.next;
+				pos++;
+			}
+			return pos ;
+			
+		}else {
+			System.out.print("Empty List");
+			return -1 ;
+		}
+		
 	}
 }
