@@ -8,7 +8,8 @@ public class ListedListDay14 {
 		list.append(56);
 		list.append(30);
 		list.append(70);
-		list.pop();
+
+		list.popLast();
 		
 		list.show();
 	}
